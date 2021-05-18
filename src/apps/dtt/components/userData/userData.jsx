@@ -131,13 +131,18 @@ console.log("final data is", dataText);
  * 
  */
 
-import React from 'react'
+import React, {useState} from 'react'
 import {Form} from './form'
 
 export function UserData() {
+    const [_dttData, set_dttData] = useState()
+    const [_valueText, set_valueText] = useState("")
     return (
         <div>
-            <Form />
+            <Form valueText={_valueText} onSumit={(dttData,valueText)=>{set_valueText(valueText);set_dttData(dttData)}} />
+            {
+                _dttData?<>data</>:<></>
+            }
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import * as d3 from "d3";
 
 export function validateData(fileText) {
-  let jsonData = {}
+  let jsonData = null
   try {
     jsonData = JSON.parse(fileText);
-    return fileText
+    return jsonData
   } catch (error) {
     //console.log("no es json")
     const header = fileText.split("\n")

@@ -255,3 +255,21 @@ td {
 }
 
 /* s */
+
+
+/*CREATED BY LIZ*/
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ebebeb;
+  border: 3px solid #32617d;
+  border-radius: 5px;
+}
+.elements {
+  display: relative;
+  float: left;
+  margin: auto;
+}

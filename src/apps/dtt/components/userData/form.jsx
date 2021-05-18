@@ -1,9 +1,10 @@
-import { Button, TextArea } from "../../ui-components/index";
+import { Button } from "../../ui-components/index";
 import demo from "./demo.txt"
 import React from 'react'
 import { validateData } from './validateData'
 
 export const Form = ({
+    valueText = "",
     onSumit = () => { }
 }) => {
 
@@ -11,18 +12,15 @@ export const Form = ({
         <div className="container">
             <label>Enter data according to acceptable format ...</label>
             <br />
-            <TextArea
-                id="userData_textArea"
-            />
+            <textarea  defaultValue={valueText} name="userData_textArea" id="userData_textArea" cols="30" rows="10"></textarea>
             <br />
             <input id="userData_inputFile" type="file" onChange={fileUpload} />
             <br />
             <Button
                 id="userData_go_button"
                 label="Go"
-                onClick={() => {
+                onClick={(e) => {
                     onSumit(validateData(document.getElementById("userData_textArea").value))
-
                 }}
                 style={{
                     float: "left",
@@ -53,7 +51,6 @@ export const Form = ({
                             if (rawFile.status === 200 || rawFile.status === 0) {
                                 //console.log(rawFile.responseText)
                                 document.getElementById("userData_textArea").value = rawFile.responseText
-
                             }
                         }
                     }

@@ -142,7 +142,6 @@ const DrawingTracesTool = () => {
         <h1>DrawingTracesTool</h1>
       </Cover>
       <Tabs tabsInfo={tabsInfo} tabs={tabs} />
-      <DttGraphic />
     </div>
   );
 };
