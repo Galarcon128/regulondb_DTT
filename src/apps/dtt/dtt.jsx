@@ -108,7 +108,6 @@ import React from "react";
 import Description from "./components/Description";
 import FormRegulondbData from "./components/FormRegulondbData";
 import {UserData} from './components/userData/userData'
-import DttGraphic from "./components/DttGraphic";
 import { Cover, Tabs } from "./ui-components/index";
 
 const tabsInfo = [
@@ -141,7 +140,7 @@ const DrawingTracesTool = () => {
       <Cover>
         <h1>DrawingTracesTool</h1>
       </Cover>
-      <Tabs tabsInfo={tabsInfo} tabs={tabs} />
+      <Tabs tabSelect={"02"} tabsInfo={tabsInfo} tabs={tabs} />
     </div>
   );
 };

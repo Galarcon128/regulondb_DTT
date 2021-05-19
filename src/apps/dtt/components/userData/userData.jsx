@@ -133,6 +133,7 @@ console.log("final data is", dataText);
 
 import React, {useState} from 'react'
 import {Form} from './form'
+import DttGraphic from '../dttGraphic/DttGraphic'
 
 export function UserData() {
     const [_dttData, set_dttData] = useState()
@@ -141,7 +142,7 @@ export function UserData() {
         <div>
             <Form valueText={_valueText} onSumit={(dttData,valueText)=>{set_valueText(valueText);set_dttData(dttData)}} />
             {
-                _dttData?<>data</>:<></>
+                _dttData?<DttGraphic id_canvas={"0120"} dnaFeatures_data={_dttData} />:<></>
             }
         </div>
     )
