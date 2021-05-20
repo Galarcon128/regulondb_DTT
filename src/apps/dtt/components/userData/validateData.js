@@ -1,36 +1,43 @@
 import * as d3 from "d3";
 
 export function validateData(fileText) {
-  let jsonData = null
+  let dnaFeaturesData = null
   try {
-    jsonData = JSON.parse(fileText);
-    return jsonData
+    dnaFeaturesData = JSON.parse(fileText);
+    return dnaFeaturesData
   } catch (error) {
     //console.log("no es json")
     const header = fileText.split("\n")
     let column = header[0].split(",")
     if (column.length >= 3) {
       if (validateColumn(column)) {
-        jsonData = d3.csvParse(fileText, function (data) {
+        dnaFeaturesData = d3.csvParse(fileText, function (data) {
           return data;
         });
-        //console.log(jsonData);
+        //console.log(dnaFeaturesData);
       }
     } else {
       column = header[0].split("\t")
       if (column.length >= 3) {
         if (validateColumn(column)) {
-          jsonData = d3.tsvParse(fileText, function (data) {
+          dnaFeaturesData = d3.tsvParse(fileText, function (data) {
             return data;
           });
-          //console.log(jsonData);
+          //console.log(dnaFeaturesData);
         }
 
       }
 
     }
   }
-  return jsonData
+  try {
+    dnaFeaturesData["columns"] = {}
+  } catch (error) {
+    console.error("error validate data from form")
+    dnaFeaturesData = null
+  }
+  //console.log(dnaFeaturesData["columns"])
+  return dnaFeaturesData
 }
 
 

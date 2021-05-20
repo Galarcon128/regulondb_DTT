@@ -9,9 +9,6 @@ class DttGraphic extends Component {
     this.state = {};
   }
 
-  handleSubmit = (event) => { };
-  handleInputChange = (event) => { };
-
   render() {
 
     const {
